@@ -42,7 +42,7 @@ eq_location_clean(data)
 
 ```r
 ## Data Setup
-test <- data.frame(`Location Name` = c("SPAIN: BARCELONA"),
+test <- data.frame(`Location Name` = c("SPAIN:  BARCELONA"),
                             Year = c(2005),
                             Mo = c(5),
                             Dy = c(1),
@@ -52,6 +52,10 @@ test <- data.frame(`Location Name` = c("SPAIN: BARCELONA"),
                             `Total Deaths` = c(6))
 ```
 
+```r
+## Function Call
+eq_location_clean(test)
+```
 
 ## Plotting the earthquakes on a line graph
 
@@ -67,18 +71,18 @@ Rendering of a line graph to plot the different earthquakes based on Richter val
 
 ```r
 ## Data Setup
-test <- data.frame(`Location Name` = c("SPAIN: BARCELONA"),
-                            Year = c(2005),
-                            Mo = c(5),
-                            Dy = c(1),
-                            Latitude = c(12.51),
-                            Longitude = c(118.2),
-                            Mag = c(4),
-                            `Total Deaths` = c(6))
+test <- data.frame(`Location Name` = c("SPAIN:  BARCELONA", "FRANCE:  PARIS"),
+                            Year = c(2005,2006),
+                            Mo = c(5,6),
+                            Dy = c(1.2),
+                            Latitude = c("12.51", "33.4"),
+                            Longitude = c("118.2", "44.5"),
+                            Mag = c(4,7),
+                            `Total Deaths` = c(6,8))
 ## Function Call
 test %>%
  eq_clean_data() %>%
- dplyr::filter(COUNTRY %in% c("TURKEY") & (lubridate::year(DATE) >= 2000 & lubridate::year(DATE) <= 2015)) %>%
+ dplyr::filter(COUNTRY %in% c("SPAIN") & (lubridate::year(DATE) >= 2000 & lubridate::year(DATE) <= 2015)) %>%
  ggplot() + geom_timeline( aes(x = DATE, size = MAGNITUDE, fill = DEATHS))
 ```
 
@@ -93,7 +97,7 @@ an argument  `label`. Another  argument required is `nmax`, required to know how
 ## Function Call
 test %>%
  eq_clean_data() %>%
- dplyr::filter(COUNTRY %in% c("TURKEY", "CALIFORNIA") & lubridate::year(DATE) > 1950) %>%
+ dplyr::filter(COUNTRY %in% c("SPAIN", "FRANCE") & lubridate::year(DATE) > 1950) %>%
  ggplot(aes(x = DATE, y = COUNTRY, color = DEATHS, size = MAGNITUDE))
 ```
 
