@@ -6,7 +6,7 @@ Authors@R:
     person(given = "Marc",
            family = "Eres",
            role = c("aut", "cre"),
-           email = "marcuseres@gmail.com"),
+           email = "marcuseres@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: The package Earthquakes has been constructed to clean and plot earthquake data from NOAA.
 License: MIT + LICENSE
