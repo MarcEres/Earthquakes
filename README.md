@@ -28,14 +28,6 @@ The package is composed of three main files:
 
 `eq_location_clean` takes `data`, and returns that same data with its column LOCATION_NAME cleaned.
 
-
-```
-#> Loading required package: earthquakeGeoms
-#> Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
-#> logical.return = TRUE, : there is no package called 'earthquakeGeoms'
-```
-
-
 ```r
 ## Function Call
 data <- data.frame(LOCATION_NAME = "SPAIN:  BARCELONA")
