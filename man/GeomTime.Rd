@@ -10,23 +10,6 @@ An object of class \code{GeomTime} (inherits from \code{Geom}, \code{ggproto}, \
 \usage{
 GeomTime
 }
-\arguments{
-\item{data}{A dataframe with the data to plot.}
-
-\item{x}{Data to be plotted on the x-axis.}
-
-\item{y}{Data to be plotted on the y-coordinate.}
-
-\item{size}{Column of data proportional to the size of each point.}
-
-\item{colour}{Column of data depicting the colour of each point.}
-
-\item{shape}{Column of data in charge of the shape of each of the points.}
-
-\item{alpha}{Column of data used to apply the alpha. \cr \cr}
-
-\item{fill}{String introduced to modify the fill of the points.S}
-}
 \value{
 The function returns a Geom to be used by geom_timeline to render
 the images into the plot.
