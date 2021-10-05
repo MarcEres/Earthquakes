@@ -54,7 +54,8 @@ test <- data.frame(`Location Name` = c("SPAIN:  BARCELONA"),
 
 ```r
 ## Function Call
-eq_location_clean(test)
+test %>%
+  eq_location_clean()
 ```
 
 ## Plotting the earthquakes on a line graph
@@ -81,9 +82,10 @@ test <- data.frame(`Location Name` = c("SPAIN:  BARCELONA", "FRANCE:  PARIS"),
                             `Total Deaths` = c(6,8))
 ## Function Call
 test %>%
- eq_clean_data() %>%
+eq_clean_data() %>%
  dplyr::filter(COUNTRY %in% c("SPAIN") & (lubridate::year(DATE) >= 2000 & lubridate::year(DATE) <= 2015)) %>%
- ggplot() + geom_timeline( aes(x = DATE, size = MAGNITUDE, fill = DEATHS))
+ ggplot() + geom_timeline( aes(x = DATE, size = MAGNITUDE, fill = DEATHS)) +
+ ggplot2::labs(size = "Richter scale value", fill = "# Deaths") + theme_time()
 ```
 
 ### B. geom_timeline_label
@@ -96,9 +98,11 @@ an argument  `label`. Another  argument required is `nmax`, required to know how
 ```r
 ## Function Call
 test %>%
- eq_clean_data() %>%
- dplyr::filter(COUNTRY %in% c("SPAIN", "FRANCE") & lubridate::year(DATE) > 1950) %>%
- ggplot(aes(x = DATE, y = COUNTRY, color = DEATHS, size = MAGNITUDE))
+  eq_clean_data() %>%
+  dplyr::filter(COUNTRY %in% c("SPAIN", "FRANCE") & lubridate::year(DATE) > 1950) %>%
+  ggplot(aes(x = DATE, y = COUNTRY, color = DEATHS, size = MAGNITUDE)) +
+  geom_timeline() + geom_timeline_label(aes(label = LOCATION_NAME), n_max = 2) +
+  ggplot2::labs(size = "Richter scale value", col = "# Deaths") + theme_time()
 ```
 
 ## Plotting the Eathquakes in a leaflet map
