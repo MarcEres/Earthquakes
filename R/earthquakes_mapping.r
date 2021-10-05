@@ -1,3 +1,7 @@
+globalVariables(c("Dy", "Total Deaths", "Mag", "Latitude", "LOCATION_NAME", "Longitude", "Mo",
+                  "Location Name", "Year", "popup_text"))
+
+
 #' Plot Earthquakes in a Map
 #'
 #' This function takes a dataset, with latitude and longitude columns, and displays

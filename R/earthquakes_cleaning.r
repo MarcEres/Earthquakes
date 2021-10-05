@@ -1,3 +1,7 @@
+globalVariables(c("Dy", "Total Deaths", "Mag", "Latitude", "LOCATION_NAME", "Longitude", "Mo",
+                  "Location Name", "Year", "popup_text"))
+
+
 #' Format LOCATION_NAME
 #'
 #' This function removes the country and the ":" symbol from the location name.

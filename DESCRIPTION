@@ -1,6 +1,6 @@
 Package: Earthquakes
 Type: Package
-Title: Earthquake plotting.
+Title: Earthquake plotting
 Version: 0.0.0.9000
 Authors@R:
     person(given = "Marc",

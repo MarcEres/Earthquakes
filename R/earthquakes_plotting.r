@@ -1,3 +1,7 @@
+globalVariables(c("Dy", "Total Deaths", "Mag", "Latitude", "LOCATION_NAME", "Longitude", "Mo",
+                  "Location Name", "Year", "popup_text"))
+
+
 #' Customize the plot theme
 #'
 #' Plot theme is modified from ggplot2 package.
@@ -88,9 +92,10 @@ GeomTime <- ggplot2::ggproto("GeomTime", ggplot2::Geom,
 #' @examples \dontrun{
 #' readr::read_delim("earthquakes-2021-09-27_15-28-44_+0200.tsv") %>%
 #' eq_clean_data() %>%
-#' dplyr::filter(COUNTRY %in% c("TURKEY") & (lubridate::year(DATE) >= 2000 & lubridate::year(DATE) <= 2015)) %>%
-#' ggplot() + geom_timeline( aes(x = DATE, size = MAGNITUDE, fill = DEATHS))
-#' + ggplot2::labs(size = "Richter scale value", fill = "# Deaths") + theme_time()
+#' dplyr::filter(COUNTRY %in% c("TURKEY") &
+#' (lubridate::year(DATE) >= 2000 & lubridate::year(DATE) <= 2015)) %>%
+#' ggplot() + geom_timeline( aes(x = DATE, size = MAGNITUDE, fill = DEATHS)) +
+#' ggplot2::labs(size = "Richter scale value", fill = "# Deaths") + theme_time()
 #' }
 #'
 #' @export
@@ -138,7 +143,7 @@ GeomTimelineLabel <- ggplot2::ggproto(
   # Setup values for n_max
   setup_data = function(data, params) {
     data <- data %>%
-      dplyr::group_by("group") %>% 
+      dplyr::group_by("group") %>%
       dplyr::top_n(params$n_max, size) %>%
       dplyr::ungroup()
   },
