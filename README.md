@@ -58,7 +58,7 @@ test <- data.frame(`Location Name` = c("SPAIN: BARCELONA"),
 Rendering of a line graph to plot the different earthquakes based on Richter values and deaths.
 
 
-### geom_timeline
+### A. geom_timeline
 
 `geom_timeline` is the layer function for the GeomTime Geom. The colour indicates the number of deaths
  and size the Richter value.
@@ -82,7 +82,7 @@ test %>%
  ggplot() + geom_timeline( aes(x = DATE, size = MAGNITUDE, fill = DEATHS))
 ```
 
-### geom_timeline_label
+### B. geom_timeline_label
 
 `geom_timeline_label` is the layer function to call the GeomTimelineLabel Geom. This function requires
 an argument  `label`. Another  argument required is `nmax`, required to know how many top labels to use in the annotation.
@@ -99,7 +99,7 @@ test %>%
 
 ## Plotting the Eathquakes in a leaflet map
 
-### eq_map
+### A. eq_map
 
 `eq_map` is the function that plots the data found on the argument `data`, using the columns LATITUDE and LONGITUDE. The data will be plotted as circles in the map, once you click the circle a pop up will appear showing the information that was input in the `annot_col` argument.
 
@@ -124,7 +124,7 @@ test %>%
  eq_map(annot_col="DATE")                                                                                             ^
 ```
 
-### eq_create_label
+### B. eq_create_label
 
 `eq_create_label` creates a new column called 'popup_text' using location name, magnitude and total deaths.
 This column is the formatted into the HTML format. If any value == NA, it is skipped. The result is a leaflet map
