@@ -9,7 +9,7 @@ Authors@R:
            email = "marcuseres@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: The package Earthquakes has been constructed to clean and plot earthquake data from NOAA.
-License: MIT + LICENSE
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
