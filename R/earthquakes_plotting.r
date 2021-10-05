@@ -29,15 +29,6 @@ theme_time <- function() {
 #'
 #' This Geom returns a ggproto object for our geom to inherit from.
 #'
-#' @param data A dataframe with the data to plot.
-#' @param x Data to be plotted on the x-axis.
-#' @param y Data to be plotted on the y-coordinate.
-#' @param size Column of data proportional to the size of each point.
-#' @param colour Column of data depicting the colour of each point.
-#' @param shape Column of data in charge of the shape of each of the points.
-#' @param alpha Column of data used to apply the alpha. \cr \cr
-#' @param fill  String introduced to modify the fill of the points.S
-#'
 #' @import grid
 #' @import ggplot2
 #'
@@ -119,22 +110,13 @@ geom_timeline <- function(mapping = NULL, data = NULL, stat = "identity",
 #' labels for each of the earthquakes plotted. The creation of this function is documented
 #' inside the function for easy comprehension and to reduce the size of this description.
 #'
-#' @param data A dataframe with the data to plot.
-#' @param x Data to be plotted on the x-axis.
-#' @param y Data to be plotted on the y-coordinate.
-#' @param size Column of data proportional to the size of each point.
-#' @param colour Column of data depicting the colour of each point.
-#' @param shape Column of data in charge of the shape of each of the points.
-#' @param alpha Column of data used to apply the alpha. \cr \cr
-#' @param fill  String introduced to modify the fill of the points.S
-#'
 #' @import grid
 #' @import ggplot2
 #'
 #' @return The function returns a Geom to be used by geom_timeline to render
 #'         the images into the plot.
 #'
-#' 
+#'
 GeomTimelineLabel <- ggplot2::ggproto(
   "GeomTimelineLabel", ggplot2::Geom,
   required_aes = c("x", "label"),
