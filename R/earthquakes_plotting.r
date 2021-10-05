@@ -11,7 +11,7 @@ globalVariables(c("Dy", "Total Deaths", "Mag", "Latitude", "LOCATION_NAME", "Lon
 #'
 #' @import ggplot2
 #'
-#' @export
+#'
 theme_time <- function() {
   ggplot2::theme(
     plot.background = ggplot2::element_blank(),
@@ -44,7 +44,7 @@ theme_time <- function() {
 #' @return The function returns a Geom to be used by geom_timeline to render
 #'         the images into the plot.
 #'
-#' @export
+#'
 GeomTime <- ggplot2::ggproto("GeomTime", ggplot2::Geom,
         required_aes = c("x"),
         default_aes = ggplot2::aes(colour = "grey3",
@@ -134,7 +134,7 @@ geom_timeline <- function(mapping = NULL, data = NULL, stat = "identity",
 #' @return The function returns a Geom to be used by geom_timeline to render
 #'         the images into the plot.
 #'
-#' @export
+#' 
 GeomTimelineLabel <- ggplot2::ggproto(
   "GeomTimelineLabel", ggplot2::Geom,
   required_aes = c("x", "label"),
