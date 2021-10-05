@@ -46,8 +46,8 @@ test <- data.frame(`Location Name` = c("SPAIN:  BARCELONA"),
                             Year = c(2005),
                             Mo = c(5),
                             Dy = c(1),
-                            Latitude = c(12.51),
-                            Longitude = c(118.2),
+                            Latitude = c("33.4"),
+                            Longitude = c("2.1"),
                             Mag = c(4),
                             `Total Deaths` = c(6))
 ```
@@ -75,8 +75,8 @@ test <- data.frame(`Location Name` = c("SPAIN:  BARCELONA", "FRANCE:  PARIS"),
                             Year = c(2005,2006),
                             Mo = c(5,6),
                             Dy = c(1.2),
-                            Latitude = c("12.51", "33.4"),
-                            Longitude = c("118.2", "44.5"),
+                            Latitude = c("33.4", "20.5"),
+                            Longitude = c("2.1", "15.2"),
                             Mag = c(4,7),
                             `Total Deaths` = c(6,8))
 ## Function Call
@@ -112,19 +112,18 @@ test %>%
 ```r
 
 ## Data Setup
-test_dataframe <- data.frame(`Location Name` = c("MEXICO:  OAXACA"),                                              ),
-                            Year = c(2000),
-                            Mo = c(4),
-                            Dy = c(4),
-                            Latitude = c(17.0),
-                            Longitude = c(96.3),
-                            `Total Deaths`= c(100),
-                            Mag  = c(7)
-                            )
+test <- data.frame(`Location Name` = c("SPAIN:  BARCELONA"),
+                            Year = c(2005),
+                            Mo = c(5),
+                            Dy = c(1),
+                            Latitude = c("33.4"),
+                            Longitude = c("2.1"),
+                            Mag = c(4),
+                            `Total Deaths` = c(6))
 ## Function Call
 test %>%
  eq_clean_data() %>%
- dplyr::filter(COUNTRY %in% c("MEXICO") & lubridate::year(DATE) >= 2000) %>%
+ dplyr::filter(COUNTRY %in% c("SPAIN") & lubridate::year(DATE) >= 2000) %>%
  eq_map(annot_col="DATE")                                                                                             ^
 ```
 
@@ -139,18 +138,17 @@ that contains circles representing the earthquakes, of which the size is directl
 ```r
 
 ## Data Setup
-test_dataframe <- data.frame(`Location Name` = c("MEXICO:  OAXACA"),                                              ),
-                            Year = c(2000),
-                            Mo = c(4),
-                            Dy = c(4),
-                            Latitude = c(17.0),
-                            Longitude = c(96.3),
-                            `Total Deaths`= c(100),
-                            Mag  = c(7)
-                            )
+test <- data.frame(`Location Name` = c("SPAIN:  BARCELONA"),
+                            Year = c(2005),
+                            Mo = c(5),
+                            Dy = c(1),
+                            Latitude = c("33.4"),
+                            Longitude = c("2.1"),
+                            Mag = c(4),
+                            `Total Deaths` = c(6))
 ## Function Call
 test %>%
  eq_clean_data() %>%
- dplyr::filter(COUNTRY %in% c("MEXICO") & lubridate::year(DATE) >= 2000) %>%
+ dplyr::filter(COUNTRY %in% c("SPAIN") & lubridate::year(DATE) >= 2000) %>%
  dplyr::mutate(popup_text = eq_create_label(.)) %>% eq_map(annot_col = "popup_text")
 ```
