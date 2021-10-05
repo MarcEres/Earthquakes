@@ -40,8 +40,6 @@ The package is composed of three main files:
 ## Function Call
 data <- data.frame(LOCATION_NAME = "SPAIN:  BARCELONA")
 eq_location_clean(data)
-#>   LOCATION_NAME
-#> 1     Barcelona
 ```
 
 ### B. eq_clean_data
@@ -60,11 +58,6 @@ test <- data.frame(`Location Name` = c("SPAIN: BARCELONA"),
                             Longitude = c(118.2),
                             Mag = c(4),
                             `Total Deaths` = c(6))
-## Function Call
- eq_clean_data(test)
-#> Error: Problem with `mutate()` column `LOCATION_NAME`.
-#> i `LOCATION_NAME = Location Name`.
-#> x object 'Location Name' not found
 ```
 
 
@@ -91,16 +84,10 @@ test <- data.frame(`Location Name` = c("SPAIN: BARCELONA"),
                             Mag = c(4),
                             `Total Deaths` = c(6))
 ## Function Call
-
 test %>%
  eq_clean_data() %>%
  dplyr::filter(COUNTRY %in% c("TURKEY") & (lubridate::year(DATE) >= 2000 & lubridate::year(DATE) <= 2015)) %>%
  ggplot() + geom_timeline( aes(x = DATE, size = MAGNITUDE, fill = DEATHS))
-#> Error: Problem with `mutate()` column `LOCATION_NAME`.
-#> i `LOCATION_NAME = Location Name`.
-#> x object 'Location Name' not found
- + ggplot2::labs(size = "Richter scale value", fill = "# Deaths") + theme_time()
-#> Error in +ggplot2::labs(size = "Richter scale value", fill = "# Deaths"): invalid argument to unary operator
 ```
 
 ### geom_timeline_label
@@ -116,13 +103,6 @@ test %>%
  eq_clean_data() %>%
  dplyr::filter(COUNTRY %in% c("TURKEY", "CALIFORNIA") & lubridate::year(DATE) > 1950) %>%
  ggplot(aes(x = DATE, y = COUNTRY, color = DEATHS, size = MAGNITUDE))
-#> Error: Problem with `mutate()` column `LOCATION_NAME`.
-#> i `LOCATION_NAME = Location Name`.
-#> x object 'Location Name' not found
- + geom_timeline() + geom_timeline_label(aes(label =LOCATION_NAME), n_max = 3)
-#> Error: Cannot use `+.gg()` with a single argument. Did you accidentally put + on a new line?
- + ggplot2::labs(size = "Richter scale value", col = "# Deaths") + theme_time()
-#> Error in +ggplot2::labs(size = "Richter scale value", col = "# Deaths"): invalid argument to unary operator
 ```
 
 ## Plotting the Eathquakes in a leaflet map
@@ -149,11 +129,7 @@ test_dataframe <- data.frame(`Location Name` = c("MEXICO:  OAXACA"),            
 test %>%
  eq_clean_data() %>%
  dplyr::filter(COUNTRY %in% c("MEXICO") & lubridate::year(DATE) >= 2000) %>%
- eq_map(annot_col = "DATE")
-#> Error: <text>:3:116: unexpected ','
-#> 2: ## Data Setup
-#> 3: test_dataframe <- data.frame(`Location Name` = c("MEXICO:  OAXACA"),                                              ),
-#>                                                                                                                       ^
+ eq_map(annot_col="DATE")                                                                                             ^
 ```
 
 ### eq_create_label
@@ -181,8 +157,4 @@ test %>%
  eq_clean_data() %>%
  dplyr::filter(COUNTRY %in% c("MEXICO") & lubridate::year(DATE) >= 2000) %>%
  dplyr::mutate(popup_text = eq_create_label(.)) %>% eq_map(annot_col = "popup_text")
-#> Error: <text>:3:116: unexpected ','
-#> 2: ## Data Setup
-#> 3: test_dataframe <- data.frame(`Location Name` = c("MEXICO:  OAXACA"),                                              ),
-#>                                                                                                                       ^
 ```
