@@ -7,7 +7,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
+[![Build Status](https://app.travis-ci.com/MarcEres/Earthquakes.svg?branch=main)](https://app.travis-ci.com/MarcEres/Earthquakes)
 
 
 ```r
