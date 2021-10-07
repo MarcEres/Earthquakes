@@ -14,6 +14,7 @@ globalVariables(c("Dy", "Total Deaths", "Mag", "Latitude", "LOCATION_NAME", "Lon
 #' @import leaflet
 #' @import dplyr
 #' @import magrittr
+#' @import markdown
 #'
 #' @return This function returns a leaflet map with the earthquakes positioned in each location.
 #'
@@ -50,6 +51,7 @@ eq_map <- function(data, annot_col) {
 #' @import stringr
 #' @import htmltools
 #' @import leaflet
+#' @import markdown
 #'
 #' @examples \dontrun{
 #' readr::read_delim("earthquakes-2021-09-27_15-28-44_+0200.tsv") %>%

@@ -22,7 +22,8 @@ Imports:
     magrittr,
     stringr,
     tools,
-    testthat
+    testthat,
+    markdown
 Suggests:
     knitr,
     rmarkdown
